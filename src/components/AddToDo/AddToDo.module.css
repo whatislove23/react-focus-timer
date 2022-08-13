@@ -1,0 +1,56 @@
+.createContainer{
+    background-color:  white;
+    border-radius:5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    margin: 20px 0;
+}
+.createInput{
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid gray;
+    width: 100%;
+    color: gray;
+    font-size: 20px;
+    padding: 10px 0;
+    margin: 10px 0;
+}
+.createInput:focus{
+    outline: none;
+}
+.createInput::placeholder{
+    color: gray;
+}
+  .Slider{
+    margin: 10px 0;
+    width: 560px;
+    color: gray;
+    font-size: 20px;
+  }
+  .addTask{
+    width: 100%;
+    border: none;
+    height: 50px;
+    border-radius: 5px;
+    font-size: 25px;
+    background-color: #868686;
+    cursor: pointer;
+    color: white;
+  }
+    .addTask:hover{
+      transform: none;
+      box-shadow: none;
+    }
+  .addTask:active{
+    background-color: #4e4d4d;
+  }
+  .closeBtn{
+
+    align-self: flex-end;
+    color: gray;
+    cursor: pointer;
+    font-size: 25px;
+  }
