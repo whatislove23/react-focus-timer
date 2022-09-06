@@ -55,3 +55,15 @@ stroke: white;
 }
 
 
+@media (max-width:429px) {
+  .timer{
+   transform: scale(0.9);
+   width: 100%;
+  }
+  .SetTime svg{
+    transform: scale(0.8);
+  }
+  .SetTime div>svg{
+    transform: scale(0.8);
+  }
+}

@@ -52,7 +52,7 @@ const AddToDo = ({ setIsOpen }) => {
           value={value}
           onChange={(el, newValue) => setValue(newValue)}
           valueLabelDisplay="auto"
-          className={"MuiSlider-thumb MuiSlider-rail MuiSlider-track"}
+          className={"MuiSlider-thumb MuiSlider-rail MuiSlider-track "}
         />
       </div>
       <button className={classes.addTask} onClick={createTask}>

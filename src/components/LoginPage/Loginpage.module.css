@@ -24,6 +24,7 @@
     align-items: center;
 }
 .buttons button{
+    overflow: hidden;
     height: 40px;
     border: none;
     width: 350px;

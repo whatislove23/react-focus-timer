@@ -74,14 +74,14 @@ export default () => {
       <div className={cl.wrapper}>
         <h1>Login</h1>
         <div className={cl.buttons}>
-          <button
+          {/* <button
             onClick={() => {
               signInWithGoogle();
             }}
           >
             <AiFillGoogleCircle className={cl.logo} />
             <div className={cl.title}>Login via Google</div>
-          </button>
+          </button> */}
           <button
             onClick={() => {
               setOpen2(true);

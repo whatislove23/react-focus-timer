@@ -1,7 +1,6 @@
 
 *{
     font-family: 'Itim', cursive;
-    
     overflow-x:hidden ;
     box-sizing: border-box;
     margin: 0;
@@ -9,6 +8,7 @@
 }
 
 .MuiSlider-thumb{
+  overflow:visible;
     color: gray
   }
   .MuiSlider-rail{
