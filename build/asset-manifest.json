@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/react-focus-timer/static/css/main.d07d6bb9.css",
+    "main.js": "/react-focus-timer/static/js/main.f4836145.js",
+    "static/media/alarm.mp3": "/react-focus-timer/static/media/alarm.e5af9dfab3dc28369f30.mp3",
+    "static/media/tomato.png": "/react-focus-timer/static/media/tomato.8d48323b8e2f61520076.png",
+    "index.html": "/react-focus-timer/index.html",
+    "main.d07d6bb9.css.map": "/react-focus-timer/static/css/main.d07d6bb9.css.map",
+    "main.f4836145.js.map": "/react-focus-timer/static/js/main.f4836145.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d07d6bb9.css",
+    "static/js/main.f4836145.js"
+  ]
+}

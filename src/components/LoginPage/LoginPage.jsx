@@ -13,11 +13,18 @@ import { useEffect } from "react";
 import Modal from "react-modal";
 import { ToastContainer, toast } from "react-toastify";
 export default () => {
-  const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
-  const [createUserWithEmailAndPassword, user2, loading2, error2] =
-    useCreateUserWithEmailAndPassword(auth);
-  const [signInWithEmailAndPassword, user3, loading3, error3] =
-    useSignInWithEmailAndPassword(auth);
+  const [
+    createUserWithEmailAndPassword,
+    createUserResponse,
+    createLoading,
+    createError,
+  ] = useCreateUserWithEmailAndPassword(auth);
+  const [
+    signInWithEmailAndPassword,
+    userLoginRespose,
+    userLoginLoading,
+    userLoginError,
+  ] = useSignInWithEmailAndPassword(auth);
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [isOpen, setOpen] = useState(false);
@@ -26,29 +33,25 @@ export default () => {
   document.body.style.backgroundColor = "#600080";
 
   useEffect(() => {
-    if (user || user2 || user3) {
-      navigate("/");
+    if (createUserResponse || userLoginRespose) navigate("/");
+    if (createError?.code === "auth/email-already-in-use") {
+      toast.error("Email already in use");
+    } else if (createError?.code === "auth/weak-password") {
+      toast.error("Weak password");
     }
-  }, [user, user2, user3]);
-
-  useEffect(() => {
-    if (error2) {
-      if (error2.code === "auth/weak-password") {
-        toast.error("Password should be at least 6 characters ");
-      }
-      if (error2.code === "auth/email-already-in-use") {
-        toast.error("Email already in use");
-      }
-      if (user2) {
-        toast.success("Done");
-      }
-      if (loading2) {
-        toast.info("Loading");
-      }
+    if (userLoginError?.code === "auth/user-not-found") {
+      toast.error("User not found");
+    } else if (userLoginError?.code === "auth/wrong-password") {
+      toast.error("Wrong password");
     }
-  }, [error2, user2, loading2]);
+  }, [userLoginRespose, userLoginRespose, createError, userLoginError]);
 
-  function loginViaEmailAndPass() {
+  useEffect(() => {}, []);
+  function validateEmail(email) {
+    var re = /\S+@\S+\.\S+/;
+    return re.test(email);
+  }
+  function loginViaEmailAndPass(password, email) {
     if (password && validateEmail(email)) {
       signInWithEmailAndPassword(email, password);
     }
@@ -56,10 +59,7 @@ export default () => {
       toast.error(`Email ${email} is not valid`);
     }
   }
-  function validateEmail(email) {
-    var re = /\S+@\S+\.\S+/;
-    return re.test(email);
-  }
+
   function registerUser() {
     if (password && validateEmail(email)) {
       createUserWithEmailAndPassword(email, password);
@@ -117,7 +117,7 @@ export default () => {
           />
           <input
             type="password"
-            placeholder="Password"
+            placeholder="Password at least 6 characters"
             onChange={(e) => {
               setPassword(e.target.value);
             }}
@@ -154,9 +154,7 @@ export default () => {
             }}
           />
           <div
-            onClick={() => {
-              loginViaEmailAndPass();
-            }}
+            onClick={() => loginViaEmailAndPass(password, email)}
             className={cl.register}
           >
             Log In

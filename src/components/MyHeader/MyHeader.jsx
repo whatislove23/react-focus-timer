@@ -55,11 +55,6 @@ export default () => {
         <Link to="/about">
           <AiOutlineInfoCircle />
         </Link>
-        {user && (
-          <div className={classes.Avatar1}>
-            <img className={classes.Avatar} src={user.photoURL} alt="123" />
-          </div>
-        )}
       </div>
     </div>
   );
